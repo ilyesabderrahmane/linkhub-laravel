@@ -34,3 +34,8 @@ RUN php artisan optimize:clear || true
 
 # Lancer le serveur
 CMD php artisan serve --host=0.0.0.0 --port=$PORT
+RUN mkdir -p /var/www/storage/framework/views \
+    /var/www/storage/framework/cache \
+    /var/www/storage/framework/sessions \
+    /var/www/bootstrap/cache \
+ && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
